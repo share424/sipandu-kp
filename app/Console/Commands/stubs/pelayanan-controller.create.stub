@@ -1,0 +1,14 @@
+<?php
+
+namespace App\Pelayanan\Providers\{{ slug }}\Controller;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class {{ slug }}Controller extends Controller
+{
+    public function index()
+    {
+        return '{{ name }}';
+    }
+}

@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Pelayanan\Providers\{{ slug }};
+
+use App\Pelayanan\PelayananProvider;
+
+class {{ slug }}Provider extends PelayananProvider
+{
+
+    public function __construct()
+    {
+        $this->nama = '{{ name }}';
+        $this->type = {{ type }};
+        $this->namespace = 'App\Pelayanan\Providers\{{ slug }}\Controller';
+        $this->slug = '{{ slug }}';
+        $this->home = 'pelayanan.{{ slug_lower }}.index';
+    }
+
+}
