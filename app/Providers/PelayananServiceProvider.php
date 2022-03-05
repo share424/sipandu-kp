@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Pelayanan\PelayananRegister;
 use App\Pelayanan\Providers\BKP\BKPProvider;
+use App\Pelayanan\Providers\PMHP\PMHPProvider;
 use App\Pelayanan\Providers\PPKP\PPKPProvider;
 use App\Pelayanan\Providers\STKA\STKAProvider;
 use Illuminate\Support\Facades\App;
@@ -23,6 +24,7 @@ class PelayananServiceProvider extends ServiceProvider
             $pelayanan->register(PPKPProvider::class);
             $pelayanan->register(BKPProvider::class);
             $pelayanan->register(STKAProvider::class);
+            $pelayanan->register(PMHPProvider::class);
 
             return $pelayanan;
         });

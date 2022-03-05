@@ -1,5 +1,5 @@
 @section('title')
-SiPandu - List User
+SiPandu KP - List Perusahaan
 @endsection
 @extends('vendors.neon.master')
 @section('style')
@@ -13,14 +13,14 @@ SiPandu - List User
 <div class="xp-breadcrumbbar">
     <div class="row">
         <div class="col-md-6 col-lg-6">
-            <h4 class="xp-page-title">List User</h4>
+            <h4 class="xp-page-title">List Perusahaan</h4>
         </div>
         <div class="col-md-6 col-lg-6">
             <div class="xp-breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('home')}}"><i class="icon-home"></i></a></li>
                     <li class="breadcrumb-item"><a href="#">Data Master</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">List User</li>
+                    <li class="breadcrumb-item active" aria-current="page">List Perusahaan</li>
                 </ol>
             </div>
         </div>
@@ -35,35 +35,29 @@ SiPandu - List User
         <div class="col-lg-12">
             <div class="card m-b-30">
                 <div class="card-header bg-white">
-                    <h5 class="card-title text-black">Data List User</h5>
-                    <a href="{{ route('users.create') }}"><button class="btn btn-primary">Tambah User</button></a>
+                    <h5 class="card-title text-black">Data List Perusahaan</h5>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table id="table-users" class="display table table-striped table-bordered">
+                        <table id="table-perusahaan" class="display table table-striped table-bordered">
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama</th>
-                                    <th>Email</th>
-                                    <th>Role</th>
+                                    <th>Nama Perusahaan</th>
+                                    <th>Nama Pemilik</th>
+                                    <th>Alamat</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($users as $user)
+                                @foreach($perusahaan as $p)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$user->nama_lengkap}}</td>
-                                    <td>{{$user->email}}</td>
-                                    <td>{{$user->role()}}</td>
+                                    <td>{{$p->nama_perusahaan}}</td>
+                                    <td>{{$p->nama_pemilik}}</td>
+                                    <td>{{$p->alamat_perusahaan}}</td>
                                     <td>
-                                        <a href="{{route('users.edit', $user->id)}}" class="btn btn-warning btn-sm">Edit</a>
-                                        <form action="{{route('users.destroy', $user->id)}}" method="post" class="d-inline">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
-                                        </form>
+                                        
                                     </td>
                                 </tr>
                                 @endforeach
@@ -87,13 +81,12 @@ SiPandu - List User
 <script src="{{ asset('vendors/plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('vendors/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('vendors/plugins/datatables/dataTables.buttons.min.js') }}"></script>
-<script src="{{ asset('vendors/plugins/datatables/buttons.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('vendors/plugins/datatables/dataTables.responsive.min.js') }}"></script>
 <script src="{{ asset('vendors/plugins/datatables/responsive.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('vendors/js/init/table-datatable-init.js') }}"></script>
 
 <script>
-    $("#table-users").DataTable();
+    $("#table-perusahaan").DataTable();
 </script>
 
 @endsection

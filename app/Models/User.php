@@ -72,4 +72,9 @@ class User extends Authenticatable
     {
         return $this->getRoleNames()[0];
     }
+
+    public function perusahaan()
+    {
+        return $this->belongsToMany(Perusahaan::class, 'user_perusahaan', 'id_user', 'id_perusahaan');
+    }
 }

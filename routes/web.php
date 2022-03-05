@@ -38,4 +38,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/users/{id}/edit', 'UserController@edit')->name('users.edit');
     Route::post('/users/{id}/edit', 'UserController@update')->name('users.update');
     Route::delete('/users/{id}/delete', 'UserController@destroy')->name('users.destroy');
+
+    // Perusahaan
+    Route::get('/perusahaan', 'PerusahaanController@index')->name('perusahaan.index');
+    Route::get('/perusahaan/create', 'PerusahaanController@create')->name('perusahaan.create');
+    Route::post('/perusahaan/create', 'PerusahaanController@store')->name('perusahaan.store');
+
+    // Master Data
+    Route::get('/master/perusahaan', 'PerusahaanController@masterIndex')->name('master.perusahaan');
 });

@@ -47,7 +47,7 @@ class MenuService
                     ],
                     [
                         'text' => 'Master Perusahaan',
-                        'url' => url('perusahaan')
+                        'url' => route('master.perusahaan')
                     ]
                 ],
             ],
@@ -56,6 +56,12 @@ class MenuService
                 'text' => 'Info Pelayanan',
                 'icon' => 'icon-note',
                 'roles' => Role::availableRoles()
+            ],
+            [
+                'url' => route('perusahaan.index'),
+                'text' => 'Perusahaan',
+                'icon' => 'icon-note',
+                'roles' => [Role::USER],
             ],
         ];
         return $menus;
