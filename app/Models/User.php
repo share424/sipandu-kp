@@ -23,6 +23,9 @@ class User extends Authenticatable
         'hp',
         'no_identitas',
         'alamat',
+        'sso_id',
+        'unit',
+        'nip',
     ];
 
     /**

@@ -22,6 +22,10 @@ Route::get('/signup', 'AuthController@signup')->name('auth.signup');
 Route::post('/signup', 'AuthController@createUser')->name('auth.signup');
 Route::get('/reset-password', 'AuthController@resetPassword')->name('auth.reset-password');
 
+// Login SSO
+Route::get('/login-sso', 'AuthController@createSSORequest')->name('auth.sso');
+Route::get('/verify-sso/{authData}', 'AuthController@verifySSO')->name('auth.verify-sso');
+
 // Only for Authenticated User
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', function () {
