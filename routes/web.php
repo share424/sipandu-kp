@@ -35,13 +35,19 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/logout', 'AuthController@logout')->name('auth.logout');
     Route::get('/jenis-pelayanan', 'PelayananController@index')->name('pelayanan.index');
 
-    // User
-    Route::get('/users', 'UserController@index')->name('users.index');
-    Route::get('/users/create', 'UserController@create')->name('users.create');
-    Route::post('/users/create', 'UserController@store')->name('users.store');
-    Route::get('/users/{id}/edit', 'UserController@edit')->name('users.edit');
-    Route::post('/users/{id}/edit', 'UserController@update')->name('users.update');
-    Route::delete('/users/{id}/delete', 'UserController@destroy')->name('users.destroy');
+    Route::group(['middleware' => 'role:Super Admin'], function() {
+        // User master
+        Route::get('/users', 'UserController@index')->name('users.index');
+        Route::get('/users/create', 'UserController@create')->name('users.create');
+        Route::post('/users/create', 'UserController@store')->name('users.store');
+        Route::get('/users/{id}/edit', 'UserController@edit')->name('users.edit');
+        Route::post('/users/{id}/edit', 'UserController@update')->name('users.update');
+        Route::delete('/users/{id}/delete', 'UserController@destroy')->name('users.destroy');
+    });
+
+    // User biasa
+    Route::get('/me/edit', 'UserController@editMe')->name('users.edit-me');
+    
 
     // Perusahaan
     Route::get('/perusahaan', 'PerusahaanController@index')->name('perusahaan.index');
