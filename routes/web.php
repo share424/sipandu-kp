@@ -54,6 +54,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/perusahaan/create', 'PerusahaanController@create')->name('perusahaan.create');
     Route::post('/perusahaan/create', 'PerusahaanController@store')->name('perusahaan.store');
 
+    // Kapal
+    Route::get('/kapal', 'KapalController@index')->name('kapal.index');
+    Route::get('/kapal/create', 'KapalController@create')->name('kapal.create');
+    Route::post('/kapal/create', 'KapalController@store')->name('kapal.store');
+    Route::get('/kapal/{id}/edit', 'KapalController@edit')->name('kapal.edit');
+    Route::post('/kapal/{id}/edit', 'KapalController@update')->name('kapal.update');
+    Route::delete('/kapal/{id}/delete', 'KapalController@destroy')->name('kapal.destroy');
+
     // Master Data
     Route::get('/master/perusahaan', 'PerusahaanController@masterIndex')->name('master.perusahaan');
 });

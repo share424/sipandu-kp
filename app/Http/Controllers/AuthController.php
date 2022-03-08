@@ -23,7 +23,11 @@ class AuthController extends Controller
         ]);
 
         if (auth()->attempt(['email' => $request->email, 'password' => $request->password])) {
-            return redirect()->route('home');
+            $user = auth()->user();
+            if ($user->hasPerusahaan() || !$user->isUser()) {
+                return redirect()->route('home');
+            }
+            return redirect()->route('perusahaan.create');
         }
 
         return redirect()->route('auth.index')->withErrors(['msg' => 'Email atau password salah']);

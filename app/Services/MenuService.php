@@ -63,6 +63,12 @@ class MenuService
                 'icon' => 'icon-note',
                 'roles' => [Role::USER],
             ],
+            [
+                'url' => route('kapal.index'),
+                'text' => 'Kapal',
+                'icon' => 'icon-note',
+                'roles' => [Role::USER],
+            ]
         ];
         return $menus;
     }

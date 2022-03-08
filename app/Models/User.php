@@ -80,4 +80,15 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Perusahaan::class, 'user_perusahaan', 'id_user', 'id_perusahaan');
     }
+
+    public function hasPerusahaan()
+    {
+        $perusahaan = $this->perusahaan->first();
+        return $perusahaan ? true : false;
+    }
+
+    public function kapal()
+    {
+        return $this->belongsToMany(Kapal::class, 'user_kapal', 'id_user', 'id_kapal');
+    }
 }
